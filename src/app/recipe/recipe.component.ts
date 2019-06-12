@@ -6,6 +6,7 @@ import {Recipe} from './recipe.model';
   templateUrl: './recipe.component.html',
   styleUrls: ['./recipe.component.css']
 })
+
 export class RecipeComponent implements OnInit {
   selectedRecipe: Recipe;
 

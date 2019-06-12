@@ -6,9 +6,14 @@ import {Recipe} from '../recipe.model';
   templateUrl: './recipe-item.component.html',
   styleUrls: ['./recipe-item.component.css']
 })
+
 export class RecipeItemComponent implements OnInit {
+  
   @Input() recipe: Recipe;
+  @Input() test: string;
+
   @Output() recipeSelected = new EventEmitter<Recipe>();
+  @Output() testOut = new EventEmitter<string>();
 
   constructor() { }
 
@@ -17,5 +22,6 @@ export class RecipeItemComponent implements OnInit {
 
   onSelect() {
     this.recipeSelected.emit(this.recipe);
+    this.testOut.emit(this.test);
   }
 }
