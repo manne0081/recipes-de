@@ -8,7 +8,6 @@ import {Recipe} from '../recipe.model';
 })
 export class RecipeDetailComponent implements OnInit {
   @Input() selectedRecipe: Recipe;
-  @Input() test: string;
 
   constructor() {
   }

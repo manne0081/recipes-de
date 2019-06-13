@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
+import {Recipe} from './recipe/recipe.model';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'recipes-de';
+  title: string;
+  @Output() testString = new EventEmitter<string>();
+
+  onClick() {
+    this.title = 'Title...'
+    this.testString.emit('testString...');
+  }
+
 }

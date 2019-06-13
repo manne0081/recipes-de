@@ -8,10 +8,11 @@ import {Recipe} from '../recipe.model';
 })
 
 export class RecipeListComponent implements OnInit {
-  
-  @Output() test = new EventEmitter<string>();
+
+  @Output() test: string;
   @Output() recipeSelected = new EventEmitter<Recipe>();
-  
+  @Output() testOut = 'testDatabinding';
+
   recipe = new Recipe('Dummy', 'Description', 'http://guides.global/images/guides/global/dummy_web_page.jpg');
   selectedRecipe: Recipe;
 
@@ -22,7 +23,7 @@ export class RecipeListComponent implements OnInit {
 
   onSelected(recipe: Recipe) {
     this.recipeSelected.emit(recipe);
-    this.test.emit("ich raff's net...");
+    this.test = "ich raff's net...";
   }
 
 }
