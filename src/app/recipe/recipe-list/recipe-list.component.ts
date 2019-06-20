@@ -14,7 +14,6 @@ export class RecipeListComponent implements OnInit {
   @Output() testOut = 'testDatabinding';
 
   recipe = new Recipe('Dummy', 'Description', 'http://guides.global/images/guides/global/dummy_web_page.jpg');
-  selectedRecipe: Recipe;
 
   constructor() { }
 

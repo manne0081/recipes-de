@@ -13,6 +13,9 @@ export class RecipeItemComponent implements OnInit {
   @Input() testIn: string;
   @Input() recipe: Recipe;
   @Output() recipeSelected = new EventEmitter<Recipe>();
+  @Output() test1 = 'testString';
+
+  isDisabled: boolean = false;
 
   constructor() { }
 
