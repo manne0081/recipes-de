@@ -6,8 +6,10 @@ import {Recipe} from '../recipe.model';
   templateUrl: './recipe-detail.component.html',
   styleUrls: ['./recipe-detail.component.css']
 })
+
 export class RecipeDetailComponent implements OnInit {
   @Input() selectedRecipe: Recipe;
+  @Input() test: string;
 
   constructor() {
   }
