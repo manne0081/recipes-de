@@ -4,7 +4,7 @@ shoppingList...
     <app-shopping-list-add></app-shopping-list-add>
     <hr>
     <ul class="list-group">
-      <a class="list-group-item" href="" style="cursor: pointer">Zutat</a>
+      <a class="list-group-item" href="" *ngFor="let ingredient of ingredients" style="cursor: pointer">{{ ingredient.name }} ({{ ingredient.amount }})</a>
     </ul>
   </div>
 </div>

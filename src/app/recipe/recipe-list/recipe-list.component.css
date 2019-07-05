@@ -1,3 +1,23 @@
 .test {
     background-color: gold;
 }
+
+.list-group-item {
+  height: 70px;
+}
+
+button {
+  margin-right: 0px;
+  padding: 0 5px;
+}
+
+.test{
+  background-color: darkseagreen;
+  border-radius: 3px;
+  padding: 5px 15px;
+  color: azure;
+}
+
+.btn-black {
+  color: black;
+}

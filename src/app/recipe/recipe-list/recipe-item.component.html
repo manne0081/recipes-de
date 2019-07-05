@@ -8,19 +8,3 @@ recipeItem...
   <img class="img-responsive" [src]="recipe.imgPath" alt="" style="max-height: 50px">
 </div>
 </a>
-
-<br>
-  <div class="test">
-  {{ testIn }}
-  {{ test }}
-  <br>
-  <div class="btn-group">
-    <button class="btn btn-black btn-default" [disabled]='isDisabled'>Try Me</button>
-    <button class="btn btn-black" disabled='{{isDisabled}}'>Try Me</button>
-    <button class="btn btn-black" bind-disabled='isDisabled'>Try Me</button>
-  </div>
-  <br>
-  <hr>
-  <h4>Custom Attribute Directive</h4>
-  <p appHighlight [defaultColor]="'blue'" [highlightColor]="'gray'">Ich bin hervorgehoben!</p>
-</div>

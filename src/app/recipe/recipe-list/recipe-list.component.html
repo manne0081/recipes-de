@@ -8,11 +8,57 @@ recipeList...
 <div class="row">
   <div class="col-xs-12">
     <ul class="list-group">
-
-      <app-recipe-item [recipe]="recipe" [test]="test" [testIn]="testOut" (recipeSelected)="onSelected($event)"></app-recipe-item>
-
+      <!--[recipe]="recipe" [test]="test" [testIn]="testOut" (recipeSelected)="onSelected($event)">-->
+      recipeItems...
+      <br>
+      <app-recipe-item *ngFor="let recipe of recipes"
+        [recipe]="recipe" (recipeSelected)="onSelected($event)">
+      </app-recipe-item>
     </ul>
   </div>
 </div>
 
+<hr>
+<div class="test">
+  {{ testIn }}
+  {{ test }}
+  <br>
+  <div class="btn-group">
+    <button class="btn btn-black btn-default" [disabled]='isDisabled'>Try Me</button>
+    <button class="btn btn-black" disabled='{{isDisabled}}'>Try Me</button>
+    <button class="btn btn-black" bind-disabled='isDisabled'>Try Me</button>
+  </div>
+  <br>
+  <hr>
+  <h4>Custom Attribute Directive</h4>
+  <p appHighlight [defaultColor]="'blue'" [highlightColor]="'gray'">Ich bin hervorgehoben!</p>
+  <hr>
+  <h4>Custom Structural Directive</h4>
+  <h5>*ngIf</h5>
+  <button (click)="switch = !switch" class="btn btn-primary" style="margin-left: 20px;">Switch!</button>
+  <div *ngIf="switch" style="margin-left: 20px;">Nicht immer zu sehen 1...</div>
+  <h5>*ngFor</h5>
+  <ul>
+    <li *ngFor="let element of elemente; let i = index" style="margin-left: 40px;">{{ element }} - (index: {{ i }})</li>
+  </ul>
+  <h5>*ngSwitch</h5>
+  <div [ngSwitch]="value" style="margin-left: 20px;">
+    <p *ngSwitchCase="10">10</p>
+    <p *ngSwitchCase="100">100</p>
+    <p *ngSwitchDefault>Irgendwas 1...</p>
+  </div>
 
+  <!--
+  <p [ngSwitch]="value">
+    <template [ngSwitchCase]="10">10</template>
+    <template [ngSwitchCase]="100">10</template>
+    <template ngSwitchDefault>Irgendwas 2...</template>
+  </p>
+  -->
+
+  <hr>
+  <h4>Unless Structural Directive</h4>
+  <h5>*ngIf</h5>
+  <div *appUnless="switch" style="margin-left: 20px;">Ist das zu sehen?</div>
+</div>
+<hr>

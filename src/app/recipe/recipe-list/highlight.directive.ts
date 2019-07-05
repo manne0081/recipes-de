@@ -28,5 +28,5 @@ export class HighlightDirective implements OnInit {
     }, 3000);
     this.color = this.defaultColor;
   }
-  
+
 }

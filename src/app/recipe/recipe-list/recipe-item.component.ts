@@ -9,13 +9,8 @@ import {Recipe} from '../recipe.model';
 
 export class RecipeItemComponent implements OnInit {
 
-  @Input() test: string;
-  @Input() testIn: string;
   @Input() recipe: Recipe;
   @Output() recipeSelected = new EventEmitter<Recipe>();
-  @Output() test1 = 'testString';
-
-  isDisabled: boolean = false;
 
   constructor() { }
 
