@@ -1,11 +1,14 @@
 import {Component, EventEmitter, OnInit, Input, Output} from '@angular/core';
 import {Recipe} from '../recipe.model';
 import {Ingredient} from '../../shared/ingredient.model';
+import {LogService} from '../../service/log.service';
+import {DataService} from '../../service/data.service';
 
 @Component({
   selector: 'app-recipe-list',
   templateUrl: './recipe-list.component.html',
-  styleUrls: ['./recipe-list.component.css']
+  styleUrls: ['./recipe-list.component.css'],
+  providers: [LogService, DataService]
 })
 
 export class RecipeListComponent implements OnInit {
@@ -24,7 +27,7 @@ export class RecipeListComponent implements OnInit {
       ]
     ),
     new Recipe(
-      'Salat',
+      'Sommer-Salat',
       'Sommerlich fruchtig',
       'https://img.chefkoch-cdn.de/ck.de/rezepte/113/113693/1029977-960x720-himbeeressig-dressing-zu-blattsalaten-und-kaese.jpg',
       [
@@ -40,8 +43,10 @@ export class RecipeListComponent implements OnInit {
   switch = true;
   elemente = [1,2,3,4,5];
   value = 1000;
+  items: string[] = [];
 
-  constructor() { }
+  constructor(private logService: LogService, private dataService: DataService) {
+  }
 
   ngOnInit() {
   }
@@ -49,6 +54,18 @@ export class RecipeListComponent implements OnInit {
   onSelected(recipe: Recipe) {
     this.recipeSelected.emit(recipe);
     this.test = "ich raff's net...";
+  }
+
+  onLog(value: string) {
+    this.logService.log(value);
+  }
+
+  onStore(value: string) {
+    this.dataService.addData(value);
+  }
+
+  onGet() {
+    this.items = this.dataService.getData();
   }
 
 }

@@ -1,4 +1,4 @@
-recipeList...
+<!--recipeList...-->
 <div class="row">
   <div class="col-xs-12">
     <a class="btn btn-success">Neues Rezept</a>
@@ -9,7 +9,7 @@ recipeList...
   <div class="col-xs-12">
     <ul class="list-group">
       <!--[recipe]="recipe" [test]="test" [testIn]="testOut" (recipeSelected)="onSelected($event)">-->
-      recipeItems...
+      <!--recipeItems...-->
       <br>
       <app-recipe-item *ngFor="let recipe of recipes"
         [recipe]="recipe" (recipeSelected)="onSelected($event)">
@@ -57,8 +57,25 @@ recipeList...
   -->
 
   <hr>
-  <h4>Unless Structural Directive</h4>
+  <h4>Unless Directive</h4>
   <h5>*ngIf</h5>
   <div *appUnless="switch" style="margin-left: 20px;">Ist das zu sehen?</div>
+
+  <hr>
+  <input style="color: black" type="text" #input>
+  <button (click)="onLog(input.value)" class="btn btn-primary">Log</button>
+  <button (click)="onStore(input.value)" class="btn btn-primary">Store</button>
+  <!--<button (click)="onSend(input.value)" class="btn btn-primary">Send</button>-->
+
+  <div>
+    <button (click)="onGet()" class="btn btn-primary">Refresh Storage</button>
+    <h4>Storage</h4>
+    <ul>
+      <li *ngFor="let item of items">{{item}}</li>
+    </ul>
+    <h4>Received Value</h4>
+    <p>{{value}}</p>
+  </div>
+
 </div>
 <hr>

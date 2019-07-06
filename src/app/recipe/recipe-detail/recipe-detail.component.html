@@ -1,4 +1,4 @@
-recipeDetail...
+<!--recipeDetail...-->
 <div class="row">
   <div class="col-xs-12">
     <img class="img-responsive" alt="" src="{{ selectedRecipe?.imgPath }}">
@@ -30,3 +30,21 @@ recipeDetail...
   </div>
 </div>
 
+<hr>
+<div class="test">
+  <input style="color: black" type="text" #input>
+  <button (click)="onLog(input.value)" class="btn btn-primary">Log</button>
+  <button (click)="onStore(input.value)" class="btn btn-primary">Store</button>
+  <!--<button (click)="onSend(input.value)" class="btn btn-primary">Send</button>-->
+
+  <div>
+    <button (click)="onGet()" class="btn btn-primary">Refresh Storage</button>
+    <h4>Storage</h4>
+    <ul>
+      <li *ngFor="let item of items">{{item}}</li>
+    </ul>
+    <h4>Received Value</h4>
+    <p>{{value}}</p>
+  </div>
+
+</div>
