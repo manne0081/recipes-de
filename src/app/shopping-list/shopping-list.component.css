@@ -1,3 +1,10 @@
 * {
   /*background-color: darkseagreen;*/
 }
+
+.test{
+  background-color: darkseagreen;
+  border-radius: 3px;
+  padding: 5px 15px;
+  color: azure;
+}

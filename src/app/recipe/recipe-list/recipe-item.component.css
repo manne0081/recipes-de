@@ -1,3 +1,7 @@
 .list-group-item {
   height: 70px;
 }
+
+.myItem {
+  margin-bottom: 4px;
+}

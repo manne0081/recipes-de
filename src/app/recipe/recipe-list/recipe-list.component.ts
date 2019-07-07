@@ -20,7 +20,7 @@ export class RecipeListComponent implements OnInit {
     new Recipe(
       'Schnitzel',
       'Schnitzel mit Pommes und Salat',
-      'https://i3-img.sat1.de/pis/ezone/e74eqgELB38wdEB0AB1fHPDQCtTDCJ4UYl_Ic-IXCoYylZ0mXauk1M9wuU4rv5_rLEYRvbq7E9XZDDfMHZWh6xm0ZycUvSmJIa8pMomMw2PbHvnnQF82mVXhA70QNyxPJXJGIFW_TdTWqIRuDoGHN45WLi_ZGIwdhW0HJyDWk6nGOF70vKVmjeIdBu3UfytyGq2mBfMlHieNUIQDVm1d7zB2wmI-x42Csm_WUZoYaWTI40EPtnuM3ZHrWw28lAxC8Q/profile:ezone-teaser620x348',
+      '../../../assets/schnitzel.jpg',
       [
         new Ingredient('Pommes', 20),
         new Ingredient('Schnitzel', 1),
@@ -29,7 +29,7 @@ export class RecipeListComponent implements OnInit {
     new Recipe(
       'Sommer-Salat',
       'Sommerlich fruchtig',
-      'https://img.chefkoch-cdn.de/ck.de/rezepte/113/113693/1029977-960x720-himbeeressig-dressing-zu-blattsalaten-und-kaese.jpg',
+      '../../../assets/salatMitHimbeeren.jpg',
       [
         new Ingredient('Salat', 40),
         new Ingredient('Himbeeren', 3),

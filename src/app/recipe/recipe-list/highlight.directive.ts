@@ -13,6 +13,7 @@ export class HighlightDirective implements OnInit {
   }
   @HostListener('mouseleave') mouseleave() {
     this.color = this.defaultColor;
+    this.changeColorTimer();
   }
 
   /*
@@ -23,6 +24,10 @@ export class HighlightDirective implements OnInit {
   */
 
   ngOnInit() {
+    this.changeColorTimer();
+  }
+
+  changeColorTimer() {
     setTimeout(() => {
       this.color = 'red';
     }, 3000);
