@@ -12,6 +12,9 @@ import { ShoppingListAddComponent } from './shopping-list/shopping-list-add.comp
 import { HighlightDirective } from './recipe/recipe-list/highlight.directive';
 import { UnlessDirective } from './unless.directive';
 import { DropdownDirective } from './header/dropdown.directive';
+import { DataService } from './service/data.service';
+import { LogService } from './service/log.service';
+import { ShoppingListService } from './shopping-list/shopping-list.service';
 
 @NgModule({
   declarations: [
@@ -25,12 +28,12 @@ import { DropdownDirective } from './header/dropdown.directive';
     ShoppingListAddComponent,
     HighlightDirective,
     UnlessDirective,
-    DropdownDirective
+    DropdownDirective,
   ],
   imports: [
     BrowserModule
   ],
-  providers: [],
+  providers: [LogService, DataService, ShoppingListService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

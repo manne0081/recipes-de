@@ -11,7 +11,7 @@
 </div>
 <div class="row">
   <div class="col-xs-12">
-    <button class="btn btn-success">Zur Einkaufsliste</button>
+    <button class="btn btn-success" (click)="onAddToList()">Zur Einkaufsliste...</button>
     <button class="btn btn-primary">Bearbeiten</button>
     <button class="btn btn-danger">Löschen</button>
   </div>
@@ -30,22 +30,25 @@
   </div>
 </div>
 
-<hr>
-<div class="test">
-  <h3>Test-Bereich...</h3>
-  <input style="color: black" type="text" #input>
-  <button (click)="onLog(input.value)" class="btn btn-primary">Log</button>
-  <button (click)="onStore(input.value)" class="btn btn-primary">Store</button>
+
+
+<!--<hr>-->
+<!--<div class="test">-->
+  <!--<h3>Test-Bereich...</h3>-->
+  <!--<input style="color: black" type="text" #input>-->
+  <!--<button (click)="onLog(input.value)" class="btn btn-primary">Log</button>-->
+  <!--<button (click)="onStore(input.value)" class="btn btn-primary">Store</button>-->
   <!--<button (click)="onSend(input.value)" class="btn btn-primary">Send</button>-->
+  <!--&lt;!&ndash;<button (click)="onSend(input.value)" class="btn btn-primary">Send</button>&ndash;&gt;-->
 
-  <div>
-    <button (click)="onGet()" class="btn btn-primary">Refresh Storage</button>
-    <h4>Storage</h4>
-    <ul>
-      <li *ngFor="let item of items">{{item}}</li>
-    </ul>
-    <h4>Received Value</h4>
-    <p>{{value}}</p>
-  </div>
+  <!--<div>-->
+    <!--<button (click)="onGet()" class="btn btn-primary">Refresh Storage</button>-->
+    <!--<h4>Storage</h4>-->
+    <!--<ul>-->
+      <!--<li *ngFor="let item of items">{{item}}</li>-->
+    <!--</ul>-->
+    <!--<h4>Received Value</h4>-->
+    <!--<p>{{value}}</p>-->
+  <!--</div>-->
 
-</div>
+<!--</div>-->

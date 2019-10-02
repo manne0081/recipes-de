@@ -10,72 +10,65 @@
     <ul class="list-group">
       <!--recipeItems...-->
       <br>
-      <app-recipe-item *ngFor="let recipe of recipes"
-        [recipe]="recipe" (recipeSelected)="onSelected($event)">
-      </app-recipe-item>
+      <app-recipe-item *ngFor="let recipe of recipes" [recipe]="recipe"></app-recipe-item>
     </ul>
   </div>
 </div>
 
-<hr>
-<div class="test">
-  <h3>Test-Bereich...</h3>
-  {{ testIn }}
-  {{ test }}
-  <br>
-  <div class="btn-group">
-    <button class="btn btn-black btn-default" [disabled]='isDisabled'>Try Me</button>
-    <button class="btn btn-black" disabled='{{isDisabled}}'>Try Me</button>
-    <button class="btn btn-black" bind-disabled='isDisabled'>Try Me</button>
-  </div>
-  <br>
-  <hr>
-  <h4>Custom Attribute Directive</h4>
-  <p appHighlight [defaultColor]="'blue'" [highlightColor]="'gray'">Ich bin hervorgehoben!</p>
-  <hr>
-  <h4>Custom Structural Directive</h4>
-  <h5>*ngIf</h5>
-  <button (click)="switch = !switch" class="btn btn-primary" style="margin-left: 20px;">Switch!</button>
-  <div *ngIf="switch" style="margin-left: 20px;">Nicht immer zu sehen 1...</div>
-  <h5>*ngFor</h5>
-  <ul>
-    <li *ngFor="let element of elemente; let i = index" style="margin-left: 40px;">{{ element }} - (index: {{ i }})</li>
-  </ul>
-  <h5>*ngSwitch</h5>
-  <div [ngSwitch]="value" style="margin-left: 20px;">
-    <p *ngSwitchCase="10">10</p>
-    <p *ngSwitchCase="100">100</p>
-    <p *ngSwitchDefault>Irgendwas 1...</p>
-  </div>
 
-  <!--
-  <p [ngSwitch]="value">
-    <template [ngSwitchCase]="10">10</template>
-    <template [ngSwitchCase]="100">10</template>
-    <template ngSwitchDefault>Irgendwas 2...</template>
-  </p>
-  -->
+<!--<hr>-->
+<!--<div class="test">-->
+  <!--<h3>Test-Bereich...</h3>-->
+  <!--{{ testIn }}-->
+  <!--{{ test }}-->
+  <!--<br>-->
+  <!--<div class="btn-group">-->
+    <!--<button class="btn btn-black btn-default" [disabled]='isDisabled'>Try Me</button>-->
+    <!--<button class="btn btn-black" disabled='{{isDisabled}}'>Try Me</button>-->
+    <!--<button class="btn btn-black" bind-disabled='isDisabled'>Try Me</button>-->
+  <!--</div>-->
+  <!--<br>-->
+  <!--<hr>-->
+  <!--<h4>Custom Attribute Directive</h4>-->
+  <!--<p appHighlight [defaultColor]="'blue'" [highlightColor]="'gray'">Ich bin hervorgehoben!</p>-->
+  <!--<hr>-->
+  <!--<h4>Custom Structural Directive</h4>-->
+  <!--<h5>*ngIf</h5>-->
+  <!--<button (click)="switch = !switch" class="btn btn-primary" style="margin-left: 20px;">Switch!</button>-->
+  <!--<div *ngIf="switch" style="margin-left: 20px;">Nicht immer zu sehen 1...</div>-->
+  <!--<h5>*ngFor</h5>-->
+  <!--<ul>-->
+    <!--<li *ngFor="let element of elemente; let i = index" style="margin-left: 40px;">{{ element }} - (index: {{ i }})</li>-->
+  <!--</ul>-->
+  <!--<h5>*ngSwitch</h5>-->
+  <!--<div [ngSwitch]="value" style="margin-left: 20px;">-->
+    <!--<p *ngSwitchCase="10">10</p>-->
+    <!--<p *ngSwitchCase="100">100</p>-->
+    <!--<p *ngSwitchDefault>Irgendwas 1...</p>-->
+  <!--</div>-->
 
-  <hr>
-  <h4>Unless Directive</h4>
-  <h5>*ngIf</h5>
-  <div *appUnless="switch" style="margin-left: 20px;">Nicht immer zu sehen 2...</div>
+  <!--<hr>-->
+  <!--<h4>Unless Directive</h4>-->
+  <!--<h5>*ngIf</h5>-->
+  <!--<div *appUnless="switch" style="margin-left: 20px;">Nicht immer zu sehen 2...</div>-->
 
-  <hr>
-  <input style="color: black" type="text" #input>
-  <button (click)="onLog(input.value)" class="btn btn-primary">Log</button>
-  <button (click)="onStore(input.value)" class="btn btn-primary">Store</button>
+  <!--<hr>-->
+  <!--<input style="color: black" type="text" #input>-->
+  <!--<button (click)="onLog(input.value)" class="btn btn-primary">Log</button>-->
+  <!--<button (click)="onStore(input.value)" class="btn btn-primary">Store</button>-->
+  <!--<button (click)="onSend(input.value)" class="btn btn-primary">Send</button>-->
   <!--<button (click)="onSend(input.value)" class="btn btn-primary">Send</button>-->
 
-  <div>
-    <button (click)="onGet()" class="btn btn-primary">Refresh Storage</button>
-    <h4>Storage</h4>
-    <ul>
-      <li *ngFor="let item of items">{{item}}</li>
-    </ul>
-    <h4>Received Value</h4>
-    <p>{{value}}</p>
-  </div>
+  <!--<div>-->
+    <!--<button (click)="onGet()" class="btn btn-primary">Refresh Storage</button>-->
+    <!--<h4>Storage</h4>-->
+    <!--<ul>-->
+      <!--<li *ngFor="let item of items">{{item}}</li>-->
+    <!--</ul>-->
+    <!--<h4>Received Value</h4>-->
+    <!--<p>{{value}}</p>-->
+  <!--</div>-->
 
-</div>
-<hr>
+<!--</div>-->
+
+<!--<hr>-->
