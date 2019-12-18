@@ -15,6 +15,9 @@ import { DropdownDirective } from './header/dropdown.directive';
 import { DataService } from './service/data.service';
 import { LogService } from './service/log.service';
 import { ShoppingListService } from './shopping-list/shopping-list.service';
+import { routing } from './app.routing';
+import { RecipeStartComponent } from './recipe/recipe-start/recipe-start.component';
+import { RecipeEditComponent } from './recipe/recipe-edit/recipe-edit.component';
 
 @NgModule({
   declarations: [
@@ -29,9 +32,12 @@ import { ShoppingListService } from './shopping-list/shopping-list.service';
     HighlightDirective,
     UnlessDirective,
     DropdownDirective,
+    RecipeStartComponent,
+    RecipeEditComponent,
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    routing
   ],
   providers: [LogService, DataService, ShoppingListService],
   bootstrap: [AppComponent]

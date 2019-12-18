@@ -11,4 +11,8 @@ export class ShoppingListService {
     Array.prototype.push.apply(this.ingredients, ingredients);
   }
 
+  resetIngredients(): void {
+    this.ingredients.length = 0;
+  }
+
 }

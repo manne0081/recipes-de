@@ -1,13 +1,13 @@
 <header>
 
   <ul class="nav nav-tabs">
-    <li role="presentation" class="active"><a href="#">Rezeptbuch</a></li>
-    <li role="presentation"><a href="#">Einkaufsliste</a></li>
+    <li role="presentation" routerLinkActive="active"><a [routerLink]="'/rezepte'">Rezeptbuch</a></li>
+    <li role="presentation" routerLinkActive="active"><a [routerLink]="'/einkaufsliste'">Einkaufsliste</a></li>
     <li>
 
       <div class="dropdown" appDropdown>
         <button id="dLabel" class="btn btn-primary" type="button" aria-haspopup="true" aria-expanded="false">
-          Dropdown trigger
+          Verwaltung
           <span class="caret"></span>
         </button>
         <ul class="dropdown-menu" aria-labelledby="dLabel">

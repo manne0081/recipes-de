@@ -1,57 +1,82 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
+import {Subscription} from 'rxjs';
 
-import {Recipe} from '../recipe.model';
-import {RecipeService} from '../recipe.service';
+import { Recipe } from '../recipe.model';
 
-import {LogService} from '../../service/log.service';
-import {DataService} from '../../service/data.service';
-import {ShoppingListService} from '../../shopping-list/shopping-list.service';
+import { LogService } from '../../service/log.service';
+import { RecipeService } from '../recipe.service';
+import { DataService } from '../../service/data.service';
+import { ShoppingListService } from '../../shopping-list/shopping-list.service';
 
 @Component({
-  selector: 'app-recipe-detail',
-  templateUrl: './recipe-detail.component.html',
-  styleUrls: ['./recipe-detail.component.css'],
-  providers: [LogService, DataService]
+    selector: 'app-recipe-detail',
+    templateUrl: './recipe-detail.component.html',
+    styleUrls: ['./recipe-detail.component.css'],
+    providers: [LogService, DataService]
 })
 
-export class RecipeDetailComponent implements OnInit {
-  selectedRecipe: Recipe;
+export class RecipeDetailComponent implements OnInit, OnDestroy {
+    selectedRecipe: Recipe;
+    recipeId: number;
 
-  value = '';
-  items: string[] = [];
+    private subcription: Subscription;
 
-  constructor(private logService: LogService, private dataService: DataService, private recipeService: RecipeService, private sls: ShoppingListService) {
-  }
+    value = '';
+    items: string[] = [];
 
-  ngOnInit() {
-    this.dataService.pushedData.subscribe(
-      (data: string) => this.value = data
-    );
-    this.recipeService.recipeSelected.subscribe(
-      (recipe: Recipe) => this.selectedRecipe = recipe
-    );
-  }
+    constructor(private logService: LogService,
+                private dataService: DataService,
+                private recipeService: RecipeService,
+                private sls: ShoppingListService,
+                private activatedRoute: ActivatedRoute,
+                private router: Router) {
+    }
 
-  onAddToList() {
-    this.sls.addIngredients(this.selectedRecipe.ingredients);
-    console.log('test...');
-  }
+    ngOnInit() {
+        this.dataService.pushedData.subscribe(
+            (data: string) => this.value = data
+        );
+        this.subcription = this.activatedRoute.params.subscribe(
+            params => {
+                this.recipeId = +params['id'];
+                this.selectedRecipe = this.recipeService.getRecipe(this.recipeId);
+            }
+        );
+    }
 
-  onLog(value: string) {
-    this.logService.log(value);
-  }
+    ngOnDestroy() {
+        this.subcription.unsubscribe();
+    }
 
-  onStore(value: string) {
-    this.dataService.addData(value);
-  }
+    onEdit() {
+        this.router.navigate(['/rezepte', this.recipeId, 'bearbeiten']);
+    }
 
-  onGet() {
-    this.items = this.dataService.getData();
-  }
+    onAddToList() {
+        this.sls.addIngredients(this.selectedRecipe.ingredients);
+    }
 
-  onSend(value: string) {
-    console.log(value);
-    this.dataService.pushData(value);
-  }
+    onDelete() {
+        this.router.navigate(['/rezepte']);
+        this.recipeService.deleteRecipe(this.recipeId);
+    }
+
+    onLog(value: string) {
+        this.logService.log(value);
+    }
+
+    onStore(value: string) {
+        this.dataService.addData(value);
+    }
+
+    onGet() {
+        this.items = this.dataService.getData();
+    }
+
+    onSend(value: string) {
+        console.log(value);
+        this.dataService.pushData(value);
+    }
 
 }
