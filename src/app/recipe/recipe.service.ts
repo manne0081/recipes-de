@@ -35,4 +35,15 @@ export class RecipeService {
         this.recipes.splice(id, 1);
     }
 
+    addRecipe(recipe: Recipe) {
+        this.recipes.push(recipe);
+        console.log(recipe.imagePath);
+    }
+
+    editRecipe(oldRecipe: Recipe, newRecipe: Recipe) {
+        this.recipes[this.recipes.indexOf(oldRecipe)] = newRecipe;
+    }
+
+
+
 }

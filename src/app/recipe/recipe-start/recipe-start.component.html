@@ -1,3 +1,34 @@
-<h1>
-  Bitte ein Rezept wählen!
-</h1>
+<h2>{{ text | uppercase }}</h2>
+
+<hr>
+<h4>Pipe-Test...</h4>
+<p>{{ text | slice:6:9 }}</p>
+<p>{{ date | date:'dd.MM.yyyy' }}</p>
+<p>{{ text2 }}</p>
+<p>{{ text2 | slice:2:7 }}</p>
+<p>{{ text2 | slice:2:7 | uppercase }}</p>
+<p>{{ asyncValue | async }}</p>
+<hr>
+<h4>Zahl wird mit 3 multipliziert...</h4>
+<input type="text" #input (keyup)="0"> {{ input.value | multiply:3 }}
+
+<hr>
+<h4>Test-Liste...</h4>
+<ul>
+    <li *ngFor="let element of list | filter:'rot'">{{ element }}</li>
+</ul>
+<input type="text" id="addElement" #addElement>
+<button class="btn btn-primary" (click)="list.push(addElement.value)">Element hinzufügen</button>
+
+<hr>
+<h4>Http!</h4>
+<label for="username">Username</label>
+<input type="text" id="username" #username>
+<label for="email">Email</label>
+<input type="email" id="email" #email>
+<button (click)="onSubmit(username.value, email.value)">Übermitteln</button>
+<hr>
+<button (click)="onGetData()">Daten abrufen</button>
+<ul>
+    <li *ngFor="let user of users">{{ user.username }} | {{ user.email }}</li>
+</ul>

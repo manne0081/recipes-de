@@ -8,6 +8,7 @@ import {Recipe} from './recipe/recipe.model';
 })
 export class AppComponent {
   title: string;
+
   @Output() testString = new EventEmitter<string>();
 
   onClick() {

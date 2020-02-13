@@ -1,10 +1,12 @@
 <!--shoppingList...-->
 <div class="row">
   <div class="col-xs-10">
-    <app-shopping-list-add></app-shopping-list-add>
+    <app-shopping-list-add [selectedIngredient]="selectedIngredient" (cleared)="onCleared()"></app-shopping-list-add>
     <hr>
     <ul class="list-group">
-      <a class="list-group-item" href="#" *ngFor="let ingredient of ingredients" style="cursor: pointer">{{ ingredient.name }} ({{ ingredient.amount }})</a>
+      <a class="list-group-item"
+         style="cursor: pointer"
+         *ngFor="let ingredient of ingredients" (click)="onSelectItem(ingredient)">{{ ingredient.name }} ({{ ingredient.amount }})</a>
     </ul>
   </div>
 </div>

@@ -8,7 +8,7 @@ import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { RecipeListComponent } from './recipe/recipe-list/recipe-list.component';
 import { RecipeDetailComponent } from './recipe/recipe-detail/recipe-detail.component';
 import { RecipeItemComponent } from './recipe/recipe-list/recipe-item.component';
-import { ShoppingListAddComponent } from './shopping-list/shopping-list-add.component';
+import { ShoppingListAddComponent } from './shopping-list/shopping-list-add/shopping-list-add.component';
 import { HighlightDirective } from './recipe/recipe-list/highlight.directive';
 import { UnlessDirective } from './unless.directive';
 import { DropdownDirective } from './header/dropdown.directive';
@@ -18,28 +18,39 @@ import { ShoppingListService } from './shopping-list/shopping-list.service';
 import { routing } from './app.routing';
 import { RecipeStartComponent } from './recipe/recipe-start/recipe-start.component';
 import { RecipeEditComponent } from './recipe/recipe-edit/recipe-edit.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RecipeService } from './recipe/recipe.service';
+import { MultiplyPipe } from './recipe/recipe-start/multiply.pipe';
+import { FilterPipe } from './recipe/recipe-start/filter.pipe';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HeaderComponent,
-    RecipeComponent,
-    ShoppingListComponent,
-    RecipeListComponent,
-    RecipeDetailComponent,
-    RecipeItemComponent,
-    ShoppingListAddComponent,
-    HighlightDirective,
-    UnlessDirective,
-    DropdownDirective,
-    RecipeStartComponent,
-    RecipeEditComponent,
-  ],
-  imports: [
-    BrowserModule,
-    routing
-  ],
-  providers: [LogService, DataService, ShoppingListService],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        HeaderComponent,
+        RecipeComponent,
+        ShoppingListComponent,
+        RecipeListComponent,
+        RecipeDetailComponent,
+        RecipeItemComponent,
+        ShoppingListAddComponent,
+        HighlightDirective,
+        UnlessDirective,
+        DropdownDirective,
+        RecipeStartComponent,
+        RecipeEditComponent,
+        MultiplyPipe,
+        FilterPipe,
+    ],
+    imports: [
+        BrowserModule,
+        FormsModule,
+        ReactiveFormsModule,
+        routing,
+        HttpClientModule,
+    ],
+    providers: [LogService, DataService, ShoppingListService, RecipeService],
+    bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
