@@ -1,12 +1,12 @@
-import { Pipe, PipeTransform } from '@angular/core';
+import {Pipe, PipeTransform} from '@angular/core';
 
 @Pipe({
-  name: 'multiply'
+    name: 'multiply'
 })
 export class MultiplyPipe implements PipeTransform {
 
-  transform(value: any, args?: any): any {
-    return value * args;
-  }
+    transform(value: any, args?: any): any {
+        return value * args;
+    }
 
 }

@@ -22,7 +22,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RecipeService } from './recipe/recipe.service';
 import { MultiplyPipe } from './recipe/recipe-start/multiply.pipe';
 import { FilterPipe } from './recipe/recipe-start/filter.pipe';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+import {HttpErrorHandler} from './http-error-handler.service';
+import {MessageService} from './message.service';
 
 @NgModule({
     declarations: [
@@ -47,9 +49,17 @@ import { HttpClientModule } from '@angular/common/http';
         FormsModule,
         ReactiveFormsModule,
         routing,
+        // import HttpClientModule after BrowserModule.
         HttpClientModule,
     ],
-    providers: [LogService, DataService, ShoppingListService, RecipeService],
+    providers: [LogService,
+                DataService,
+                ShoppingListService,
+                RecipeService,
+                HttpErrorHandler,
+                MessageService,
+    ],
+
     bootstrap: [AppComponent]
 })
 export class AppModule {

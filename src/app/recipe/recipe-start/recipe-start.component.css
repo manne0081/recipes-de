@@ -1,0 +1,11 @@
+.inputNumber {
+    width: 50px;
+}
+
+.inputNumber.eins {
+    margin-right: 10px;
+}
+
+.eins {
+    margin-right: 10px;
+}
