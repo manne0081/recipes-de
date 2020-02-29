@@ -13,7 +13,7 @@ export class DropdownDirective {
   }
 
   constructor() {
-    console.log("Ich raffs jetzt wieder...");
+    console.log("Ich raff's jetzt wieder... -> dropdown.directive");
   }
 
 }

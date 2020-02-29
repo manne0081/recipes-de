@@ -1,4 +1,4 @@
-<h2>{{ text | uppercase }}</h2>
+<h3>{{ text | uppercase }}</h3>
 
 <hr>
 <h4>Standard-Pipes</h4>
@@ -8,28 +8,29 @@
 <p>{{ text2 | slice:2:7 }}</p>
 <p>{{ text2 | slice:2:7 | uppercase }}</p>
 <p>{{ asyncValue | async }}</p>
+
 <hr>
 <h4>Eigene-Pipe (multiply...)</h4>
 <input type="text" class="inputNumber eins" #firstNumber (keyup)="0">
-<input type="text" class="inputNumber zwei"  #secNumber (keyup)="0">
-= {{ firstNumber.value | multiply:secNumber.value }}
+<input type="text" class="inputNumber zwei"  #secondNumber (keyup)="0">
+<input type="text" class="inputNumber drei"  #thirdNumber (keyup)="0">
+{{ firstNumber.value | multiply:secondNumber.value }}
 
 <hr>
 <h4>Eigene-Pipe (filter...)</h4>
 <ul>
-    <li *ngFor="let element of list | filter:'rot'">{{ element }}</li>
+    <li *ngFor="let element of shoppingList | filter:'rot'">{{ element }}</li>
 </ul>
 <input type="text" id="addElement" class="eins" #addElement>
-<button class="btn btn-primary" (click)="list.push(addElement.value)">Element hinzufügen</button>
+<button class="btn btn-primary" (click)="shoppingList.push(addElement.value)">Element hinzufügen</button>
 
 <hr>
 <h4>HttpClient</h4>
 <label for="username">Username</label>
 <input type="text" class="eins" id="username" #username>
 <label for="email">Email</label>
-<input type="email" id="email" #email>
-<br>
-<button (click)="onSubmit(username.value, email.value)">Übermitteln</button>
+<input type="email" id="email" #email class="eins">
+<button (click)="onSubmit(username.value, email.value)" class="btn btn-primary">Übermitteln</button>
 
 <hr>
 <button (click)="onGetData()">Daten abrufen</button>
@@ -37,5 +38,13 @@
     <li *ngFor="let user of users">{{ user.username }} | {{ user.email }}</li>
 </ul>
 
+<hr>
+<ul>
+    <li *ngFor="let asyncUser of asyncUsers | async">{{ asyncUser.username }} | {{ asyncUser.email }}</li>
+</ul>
+
+<hr>
 <button (click)="test()">test</button>
 {{ testString }}
+
+

@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpService } from '../../shared/http.service';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
     selector: 'app-recipe-start',
@@ -9,18 +8,22 @@ import { Observable } from 'rxjs';
     styleUrls: ['./recipe-start.component.css'],
     providers: [HttpService]
 })
-export class RecipeStartComponent {
-    users: any = [];
 
+export class RecipeStartComponent {
     text = 'bitte ein rezept wählen';
+
+    //Pipe-Test
     text2 = 'irgendein text';
     date = new Date();
-    list = ['Brot', 'Milch', 'Honig', 'Nüsse', 'Vollkornbrot'];
+    shoppingList = ['Brot', 'Milch', 'Honig', 'Nüsse', 'Vollkornbrot'];
     asyncValue = new Promise((resolve, reject) => {
         setTimeout(() => {
-            resolve('2 Sekunden sind rum!');
+            resolve('Text erscheint 2 Sek. nach laden der APP');
         }, 2000);
     });
+    users: any = [];
+    asyncUsers = this.httpService.getData();
+
 
     constructor(private httpService: HttpService,
                 private httpClient: HttpClient) {}
@@ -53,16 +56,17 @@ export class RecipeStartComponent {
             .subscribe(
                 // data => console.log(data),
                 data => this.users = data,
-                // error => console.log('Fehler beim abfragen... ', error.status)
+                // error => console.log('Fehler-Status: ', error.status)
                 error => this.errorCheck(error)
             );
     }
 
+
     errorCheck(error: any) {
         if(error.status == 404) {
-            console.log('Fehler 404 beim abfragen, keine Datenbankverbindung... ', error.status);
+            console.log('Fehler-Status:', error.status, '-> Keine Datenbankverbindung.');
         } else {
-            console.log('Fehler beim abfragen, keine Ahnung warum :-) ', error.status);
+            console.log('Fehler-Status:', error.status, '-> Keine Ahnung warum... :-)');
         }
     }
 

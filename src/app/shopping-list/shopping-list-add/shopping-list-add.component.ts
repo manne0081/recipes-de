@@ -8,6 +8,7 @@ import {Ingredient} from '../../shared/ingredient.model';
     templateUrl: './shopping-list-add.component.html',
     styleUrls: ['./shopping-list-add.component.css']
 })
+
 export class ShoppingListAddComponent implements OnInit, OnChanges {
     @Input() selectedIngredient: Ingredient;
     @Output() cleared = new EventEmitter();

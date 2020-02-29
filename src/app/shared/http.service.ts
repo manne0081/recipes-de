@@ -1,20 +1,20 @@
-import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import {catchError, map} from 'rxjs/internal/operators';
-import {Observable, throwError} from 'rxjs';
-import {HttpErrorHandler, HandleError} from '../http-error-handler.service';
+import { map } from 'rxjs/internal/operators';
+import { HttpErrorHandler, HandleError } from '../http-error-handler.service';
 
 @Injectable()
+
 export class HttpService {
     private handleError: HandleError;
-    private apiUrl = 'https://recipes-de.firebaseio.com/data.jso';
+    private apiUrl = 'https://recipes-de.firebaseio.com/data.json';
+
 
     constructor(private httpClient: HttpClient,
                 private httpErrorHandler: HttpErrorHandler)
     {
         this.handleError = httpErrorHandler.createHandleError('test...');
     }
-
 
     // Der .catch-Teil funktioniert nicht...
     public sendData(user: any) {
@@ -62,9 +62,6 @@ export class HttpService {
             }))
         ;
     }
-
-
-
 
 
 }
