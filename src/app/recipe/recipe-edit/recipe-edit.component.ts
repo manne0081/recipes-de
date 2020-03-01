@@ -73,11 +73,12 @@ export class RecipeEditComponent implements OnInit, OnDestroy {
     onSubmit(){
         const newRecipe = this.recipeForm.value;
         if (this.isNew) {
-            this.recipeService.addRecipe(newRecipe);
+            var id = this.recipeService.addRecipe(newRecipe);
+            this.router.navigate(['/rezepte/' + id + '/bearbeiten']);
+            return
         } else {
             this.recipeService.editRecipe(this.recipe, newRecipe);
         }
-        this.onNavigateBack();
     }
 
     onCancel() {
