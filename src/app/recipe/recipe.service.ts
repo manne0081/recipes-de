@@ -46,8 +46,11 @@ export class RecipeService {
     }
 
     addRecipe(recipe: Recipe) {
-        this.recipes.push(recipe);
-        console.log(recipe.imagePath);
+        // this.recipes.push(recipe);
+        var id = this.recipes.push(recipe) -1;
+        console.log('ImagePath: ' + recipe.imagePath);
+        // return this.recipes.indexOf(recipe);
+        return id;
     }
 
     editRecipe(oldRecipe: Recipe, newRecipe: Recipe) {
